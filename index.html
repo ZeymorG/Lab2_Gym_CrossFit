@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mashka Box Training Club</title>
 </head>
 <body>
@@ -13,27 +14,29 @@
         <!-- Menú -->
         <nav>
             <a href="#inicio">Inicio</a> 
-            <a href="#beneficios">Beneficios</a> 
+            <a href="#planes">Planes</a> 
             <a href="#horarios">Horarios</a> 
             <a href="#contacto">Contacto</a>
         </nav>
 
     </header>
 <hr>
-    <!-- Inicio -->
-    <section>
+    <section id="inicio">
         <h2>MASHKA BOX</h2>
         <p>
-           <strong>No necesitas esperiencia, solo ganas de empezar</strong>
+           <strong>No necesitas experiencia, solo ganas de empezar</strong>
         </p>
         <img src="img/mash.jpeg" width="500"><br>
-            <input type="submit" value="CONTÁCTANOS">
-            <input type="submit" value="SABER MÁS">
-
+            <a href="#contacto">
+                <button>CONTÁCTANOS</button>
+            </a>
+            <a href="#galeria">
+                <button>SABER MÁS</button>
+            </a>
     </section>
 <hr>
     <!-- Bienvenida -->
-    <section id="inicio">
+    <section>
         <h2>Bienvenido a Mashka Box</h2>
         <p>
             Somos un centro de entrenamiento funcional y CrossFit en Latacunga.<br>
@@ -45,10 +48,52 @@
             <source src="videos/crossfit.mp4" type="video/ogg">
         </video>
     </section>
+
+<hr>
+    <!-- Beneficios + Galería -->
+    <section id="galeria">
+        <h2>¿Por qué entrenar con nosotros?</h2>
+
+        <p>
+            En Mashka Box no solo vienes a entrenar, vienes a superarte cada día.
+            Aquí no importa si estás empezando o si ya tienes experiencia, lo importante
+            es que quieras mejorar y dar lo mejor de ti 💪
+        </p>
+
+        <!-- Lista de beneficios -->
+        <ul>
+            <li>Entrenamientos adaptados para todos los niveles</li>
+            <li>Coaches que te guían paso a paso desde el inicio</li>
+            <li>Ambiente motivador y comunidad que te impulsa a seguir</li>
+            <li>Primera clase de prueba para vivir la experiencia</li>
+            <li>Resultados reales con disciplina y constancia</li>
+            <li>Más que un gimnasio, una familia 💛💙</li>
+        </ul>
+
+        <p>
+            No necesitas estar en forma para empezar… empiezas para ponerte en forma.
+            Este es tu momento. 💥
+        </p>
+
+        <h3>Nuestras instalaciones y entrenamientos</h3>
+
+        <!-- Galería -->
+        <div>
+            <img src="img/gym1.webp" width="200" height="200" alt="Entrenamiento funcional">
+            <img src="img/gym2.webp" width="200" height="200" alt="Zona de pesas">
+            <img src="img/gym3.webp" width="200" height="200" alt="Clase grupal">
+        </div>
+        <br>
+        <div>
+            <img src="img/gym4.webp" width="200" height="200" alt="Área de CrossFit">
+            <img src="img/gym5.webp" width="200" height="200" alt="Entrenamiento con pesas">
+            <img src="img/gym6.webp" width="200" height="200" alt="Grupo entrenando">
+        </div>
+    </section>
+    
 <hr>
     <!-- Planes -->
-    <section id="beneficios">
-        <h4>Entrena con nosotros</h4>
+    <section id="planes">
         <h2>Planes</h2>
 
         <div >
@@ -84,7 +129,7 @@
                     $95 c/U. Comprométete 90 días.
                 </p>
             </div>
-            <!-- Plan 4 -->
+            <!-- Plan 5 -->
             <div>
                 <span>5</span>
                 <h3>PLAN SEMESTRAL</h3>
@@ -128,8 +173,8 @@
             <input type="text" name="nombre" placeholder="Nombre" required>
             <input type="tel" name="telefono" placeholder="Numero Telefonico" required>
             <input type="email" name="email" placeholder="Email..." required>
-            <button type="submit">ENVIAR</button> <br>
-            <textarea name="mensaje" rows="10" placeholder="Escribe tu mensaje aquí..."></textarea>
+            <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea><br>
+            <button type="submit">ENVIAR</button>
         </form>
 
     </section>
@@ -144,13 +189,14 @@
                 <!-- Email -->
                 <div>
                     <p><strong>Email:</strong></p>
-                    <p>contact@company.com</p>
+                    <p>mashkaboxtc@gmail.com</p>
                 </div>
 
                 <!-- Redes sociales -->
                 <div>
                     <a href="https://www.facebook.com/mashkabox/#" target="_blank">Facebook</a>
                     <a href="https://www.instagram.com/mashkabox/" target="_blank">Instagram</a>
+                    <a href="#">TikTok</a>
                 </div>
 
             <!-- DERECHA (MAPA) -->
