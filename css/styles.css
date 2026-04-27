@@ -1,0 +1,859 @@
+/* ============================
+   Variables & Reset
+   ============================ */
+:root {
+    --negro:      #0D0D0D;
+    --negro-2:    #1a1a1a;
+    --azul:       #52A5D9;
+    --amarillo:   #F2CF1D;
+    --dorado:     #F2BD1D;
+    --gris:       #F2F2F2;
+
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body:    'Barlow', sans-serif;
+
+    --radius:      8px;
+    --radius-lg:   14px;
+    --shadow:      0 2px 16px rgba(0,0,0,0.25);
+    --shadow-lg:   0 8px 36px rgba(0,0,0,0.4);
+    --max-w:       1200px;
+    --section-pad: 90px 40px;
+    --transition:  0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--gris);
+    background: var(--negro);
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+img,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================
+   Utilities
+   ============================ */
+.container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+    line-height: 1;
+}
+
+.video-wrapper,
+.schedule__video {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--negro);
+    border: 2px solid var(--azul);
+}
+
+.video-wrapper video,
+.schedule__video video {
+    width: 100%;
+}
+
+/* ============================
+   Buttons
+   ============================ */
+.btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 16px 44px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background var(--transition), color var(--transition), border-color var(--transition), transform 0.15s;
+}
+
+.btn--dark {
+    background: var(--amarillo);
+    color: var(--negro);
+    border-color: var(--amarillo);
+}
+
+.btn--dark:hover {
+    background: var(--dorado);
+    border-color: var(--dorado);
+    transform: translateY(-2px);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--azul);
+    border-color: var(--azul);
+}
+
+.btn--outline:hover {
+    background: var(--azul);
+    color: var(--negro);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   Header
+   ============================ */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--negro);
+    border-bottom: 3px solid var(--azul);
+    box-shadow: 0 2px 24px rgba(82,165,217,0.25);
+}
+
+.header__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    color: var(--gris);
+}
+
+.logo-accent {
+    color: var(--dorado);
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav__link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 9px 22px;
+    border-radius: 50px;
+    border: 2px solid rgba(82,165,217,0.4);
+    color: var(--gris);
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.nav__link:hover {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: var(--negro);
+    font-weight: 700;
+}
+
+.nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--gris);
+}
+
+/* ============================
+   Hero
+   ============================ */
+.hero {
+    position: relative;
+    background: var(--negro);
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 20px 80px;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/logo-hero.webp');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center 63%;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: 390px;
+}
+
+.hero__subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--gris);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero__shapes,
+.shape,
+.shape--tri,
+.shape--circle {
+    display: none;
+}
+
+/* ============================
+   Welcome — azul, texto + video lado a lado
+   ============================ */
+.welcome {
+    padding: var(--section-pad);
+    background: var(--azul);
+    text-align: center;
+}
+
+.welcome__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.welcome__text-col .section__title {
+    color: var(--negro);
+    margin-bottom: 1.2rem;
+}
+
+.welcome__text {
+    color: var(--negro);
+    font-size: 1.15rem;
+    line-height: 1.9;
+    font-weight: 500;
+    opacity: 0.88;
+    margin-bottom: 1.8rem;
+}
+
+.welcome__tagline {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--negro);
+    letter-spacing: 0.06em;
+    opacity: 0.65;
+}
+
+.video-wrapper {
+    width: 100%;
+}
+
+/* ============================
+   Benefits
+   ============================ */
+.benefits {
+    padding: var(--section-pad);
+    background: var(--negro-2);
+    text-align: center;
+}
+
+.benefits .section__title {
+    color: var(--amarillo);
+}
+
+.benefits__intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    color: var(--gris);
+    line-height: 1.8;
+    opacity: 0.85;
+}
+
+.benefits__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: var(--max-w);
+    margin: 0 auto 2.5rem;
+    text-align: left;
+}
+
+.benefits__item {
+    background: var(--negro);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--gris);
+    border-left: 5px solid var(--azul);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.benefits__item:hover {
+    transform: translateY(-4px);
+    border-left-color: var(--amarillo);
+}
+
+.benefits__icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.benefits__cta-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--amarillo);
+    margin-bottom: 4rem;
+}
+
+.gallery__title {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    color: var(--gris);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.gallery__item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--negro-2);
+    aspect-ratio: 4/3;
+    border: 2px solid transparent;
+    transition: border-color var(--transition);
+}
+
+.gallery__item:hover {
+    border-color: var(--azul);
+}
+
+.gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s;
+}
+
+.gallery__item:hover img {
+    transform: scale(1.06);
+}
+
+/* ============================
+   Plans — negro, estilo flyer con precio grande
+   ============================ */
+.plans {
+    padding: var(--section-pad);
+    background: var(--negro);
+    text-align: center;
+}
+
+.plans__eyebrow {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--azul);
+    margin-bottom: 0.4rem;
+    opacity: 0.8;
+}
+
+.plans .section__title {
+    color: var(--amarillo);
+    margin-bottom: 3rem;
+}
+
+.plans__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+}
+
+.plan-card {
+    background: var(--negro-2);
+    border-radius: var(--radius-lg);
+    padding: 40px 28px;
+    text-align: center;
+    border: 2px solid var(--azul);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 40px rgba(82,165,217,0.3);
+    border-color: var(--amarillo);
+}
+
+.plan-card--full {
+    grid-column: 1 / -1;
+    width: calc(50% - 10px);
+    margin: 0 auto;
+}
+
+.plan-card__name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    color: var(--amarillo);
+    margin-bottom: 12px;
+}
+
+.plan-card__price {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    color: var(--gris);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+}
+
+.plan-card__price sup {
+    font-size: 2rem;
+    vertical-align: super;
+}
+
+.plan-card__desc {
+    font-size: 1rem;
+    color: var(--azul);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.plans__footer-text {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--gris);
+    letter-spacing: 0.06em;
+    opacity: 0.6;
+}
+
+/* ============================
+   Schedule — negro-2, tabla con borde azul
+   ============================ */
+.schedule {
+    padding: var(--section-pad);
+    background: var(--negro-2);
+}
+
+.schedule .section__title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--amarillo);
+}
+
+.schedule__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.schedule__table-wrap {
+    overflow-x: auto;
+}
+
+.schedule__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--negro);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--azul);
+}
+
+.schedule__table th,
+.schedule__table td {
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(82,165,217,0.15);
+    color: var(--gris);
+}
+
+.schedule__table thead th {
+    background: var(--azul);
+    color: var(--negro);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+
+.schedule__table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.schedule__table tbody tr:hover td {
+    background: rgba(82,165,217,0.1);
+}
+
+/* ============================
+   Contact — azul, formulario con inputs claros
+   ============================ */
+.contact {
+    padding: var(--section-pad);
+    background: var(--azul);
+}
+
+.contact .section__title {
+    text-align: center;
+    margin-bottom: 0.6rem;
+    color: var(--negro);
+}
+
+.contact__subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--negro);
+    opacity: 0.72;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.contact__form {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact__form input,
+.contact__form textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid rgba(0,0,0,0.15);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--negro);
+    background: rgba(255,255,255,0.88);
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.contact__form input::placeholder,
+.contact__form textarea::placeholder {
+    color: rgba(13,13,13,0.45);
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+    outline: none;
+    border-color: var(--negro);
+    background: #fff;
+}
+
+.contact__form textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+
+.contact__form .btn {
+    grid-column: 1 / -1;
+    width: fit-content;
+    margin-top: 6px;
+    background: var(--negro);
+    color: var(--amarillo);
+    border-color: var(--negro);
+}
+
+.contact__form .btn:hover {
+    background: var(--negro-2);
+    border-color: var(--negro-2);
+    color: var(--amarillo);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   Footer — negro, cards de contacto estilo moqup
+   ============================ */
+.footer {
+    background: var(--negro);
+    border-top: 4px solid var(--azul);
+    padding: 60px 40px 28px;
+}
+
+.footer__inner {
+    max-width: var(--max-w);
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.footer__left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.footer__brand {
+    margin-bottom: 28px;
+}
+
+.footer__brand-name {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    letter-spacing: 0.08em;
+    color: var(--gris);
+    line-height: 1;
+}
+
+.footer__brand-name span {
+    color: var(--dorado);
+}
+
+.footer__tagline {
+    font-size: 0.85rem;
+    color: var(--azul);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--negro-2);
+    padding: 18px 22px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(82,165,217,0.25);
+    transition: border-color var(--transition);
+}
+
+.footer__item:hover {
+    border-color: var(--azul);
+}
+
+.footer__icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.footer__label {
+    font-size: 0.75rem;
+    color: var(--azul);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+}
+
+.footer__value {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--gris);
+}
+
+.footer__value:hover {
+    color: var(--amarillo);
+}
+
+.footer__social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius);
+    background: var(--negro-2);
+    border: 2px solid var(--azul);
+    color: var(--azul);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.social-link:hover {
+    background: var(--amarillo);
+    border-color: var(--amarillo);
+    color: var(--negro);
+    transform: translateY(-3px);
+}
+
+.footer__map {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid rgba(82,165,217,0.35);
+}
+
+.footer__map iframe {
+    width: 100%;
+    height: 360px;
+    border: none;
+    display: block;
+}
+
+.footer__bottom {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(82,165,217,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: rgba(242,242,242,0.4);
+}
+
+.footer__bottom strong {
+    color: var(--gris);
+}
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 1024px) {
+    .benefits__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-pad: 70px 20px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav__toggle {
+        display: block;
+    }
+
+    .hero__bg {
+        background-size: 95%;
+        background-position: center 8%;
+    }
+
+    .welcome__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .benefits__list {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plans__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-card--full {
+        grid-column: 1;
+    }
+
+    .schedule__inner,
+    .contact__form,
+    .footer__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .header__inner {
+        padding: 0 20px;
+    }
+}
