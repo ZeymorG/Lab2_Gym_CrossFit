@@ -69,6 +69,7 @@ a {
     line-height: 1;
 }
 
+/* Estilos compartidos  */
 .video-wrapper,
 .schedule__video {
     border-radius: var(--radius-lg);
@@ -78,9 +79,25 @@ a {
     border: 2px solid var(--azul);
 }
 
-.video-wrapper video,
-.schedule__video video {
+/* Video de BIENVENIDA */
+.video-wrapper video {
     width: 100%;
+}
+.video-wrapper {
+    max-width: 1000px;  
+    margin: 0 auto;
+}
+
+/* Video de HORARIOS —*/
+.schedule__video video {
+    width: 100%;   
+    height: 500px; 
+    object-fit: cover;
+}
+.schedule__video {
+    max-width: 350px;  
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ============================
